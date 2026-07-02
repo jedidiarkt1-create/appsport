@@ -15,23 +15,32 @@
   <button id="resetWeekBtn" class="ghost-btn" title="Réinitialiser la semaine">Réinitialiser</button>
 </header>
 
-<section class="progress-bar-wrap tip-card">
-  <strong>Conseil débutante :</strong> commence avec des charges légères sur chaque machine (2 premières semaines) pour apprendre le mouvement, puis augmente progressivement. Pour la perte de poids, ajoute si possible 20-30 min de cardio guidé (vélo, tapis, elliptique) après tes séances — la combinaison musculation + cardio + alimentation est ce qui fait la différence sur la durée.
+<nav id="viewSwitch" class="view-switch">
+  <button class="view-tab active" data-view="programme">Programme</button>
+  <button class="view-tab" data-view="poids">Suivi de poids</button>
+</nav>
+
+<section id="view-programme">
+  <section class="progress-bar-wrap tip-card">
+    <strong>Conseil débutante :</strong> commence avec des charges légères sur chaque machine (2 premières semaines) pour apprendre le mouvement, puis augmente progressivement. Pour la perte de poids, ajoute si possible 20-30 min de cardio guidé (vélo, tapis, elliptique) après tes séances — la combinaison musculation + cardio + alimentation est ce qui fait la différence sur la durée.
+  </section>
+
+  <section class="progress-bar-wrap">
+    <div class="progress-info">
+      <span id="progressLabel">0 / 0 exercices validés cette semaine</span>
+      <span id="progressPercent">0%</span>
+    </div>
+    <div class="progress-track">
+      <div id="progressFill" class="progress-fill"></div>
+    </div>
+  </section>
+
+  <nav id="dayTabs" class="day-tabs"></nav>
+
+  <main id="dayContent" class="day-content"></main>
 </section>
 
-<section class="progress-bar-wrap">
-  <div class="progress-info">
-    <span id="progressLabel">0 / 0 exercices validés cette semaine</span>
-    <span id="progressPercent">0%</span>
-  </div>
-  <div class="progress-track">
-    <div id="progressFill" class="progress-fill"></div>
-  </div>
-</section>
-
-<nav id="dayTabs" class="day-tabs"></nav>
-
-<main id="dayContent" class="day-content"></main>
+<section id="view-poids" class="weight-view" hidden></section>
 
 <footer class="app-footer">
   <p>Programme personnalisé · Salle MyGym · La Réunion</p>
@@ -40,5 +49,6 @@
 <script src="machines.js"></script>
 <script src="program.js"></script>
 <script src="app.js"></script>
+<script src="weight.js"></script>
 </body>
 </html>
