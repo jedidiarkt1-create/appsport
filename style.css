@@ -11,6 +11,8 @@
   --blue: #4d9dff;
   --purple: #b57bff;
   --grey: #5c6270;
+  --pink: #ff5c8a;
+  --pink-soft: rgba(255, 92, 138, 0.15);
 }
 
 * { box-sizing: border-box; }
@@ -549,4 +551,109 @@ body {
 
 .weight-edit-btn {
   width: 100%;
+}
+
+/* Cycle tracking */
+.cycle-view {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+}
+
+.regularity-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.regularity-badge.regular {
+  background: rgba(61, 220, 132, 0.15);
+  color: var(--green);
+}
+
+.regularity-badge.irregular {
+  background: rgba(255, 106, 106, 0.15);
+  color: #ff6a6a;
+}
+
+.regularity-badge.neutral {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+}
+
+.cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.cycle-grid-header {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  padding-bottom: 4px;
+}
+
+.cycle-day {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.cycle-day.empty {
+  border: none;
+  background: none;
+  cursor: default;
+}
+
+.cycle-day.today {
+  border-color: var(--accent);
+}
+
+.cycle-day.marked {
+  background: var(--pink);
+  border-color: var(--pink);
+  color: #2a0a15;
+  font-weight: 700;
+}
+
+.cycle-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.cycle-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--pink);
+}
+
+.cycle-absent-banner {
+  background: rgba(255, 106, 106, 0.1);
+  color: #ff8a8a;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  margin: 0 0 4px;
+}
+
+.cycle-absent-row {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
 }

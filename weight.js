@@ -230,6 +230,11 @@ function renderWeightChart(wrap, profile, entries) {
   `;
 }
 
+// Chaque module de vue s'enregistre ici : VIEW_RENDERERS["poids"] = renderWeightView
+const VIEW_RENDERERS = {
+  poids: renderWeightView
+};
+
 document.querySelectorAll(".view-tab").forEach(tab => {
   tab.addEventListener("click", () => {
     document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
@@ -238,6 +243,6 @@ document.querySelectorAll(".view-tab").forEach(tab => {
     document.querySelectorAll(".app-view").forEach(section => {
       section.hidden = section.dataset.view !== view;
     });
-    if (view === "poids") renderWeightView();
+    if (VIEW_RENDERERS[view]) VIEW_RENDERERS[view]();
   });
 });
