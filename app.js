@@ -41,7 +41,14 @@ function totalTrainableExercises() {
 }
 
 function completedCount() {
-  return Object.values(progress).filter(Boolean).length;
+  let count = 0;
+  PROGRAM.filter(d => !d.rest).forEach(day => {
+    day.exercises.forEach((ex, index) => {
+      const done = progress[exerciseKey(day.id, index)] || 0;
+      if (done >= ex.sets) count++;
+    });
+  });
+  return count;
 }
 
 function renderTabs() {
@@ -78,16 +85,27 @@ function renderDay() {
 
   day.exercises.forEach((ex, index) => {
     const key = exerciseKey(day.id, index);
-    const checked = !!progress[key];
+    const done = progress[key] || 0;
+    const isDone = !day.rest && done >= ex.sets;
 
     const card = document.createElement("div");
-    card.className = "exercise-card" + (checked ? " done" : "");
+    card.className = "exercise-card" + (isDone ? " done" : "");
 
     const tuto = ex.machineId ? MACHINES[ex.machineId] : null;
 
+    const setDots = !day.rest ? `
+      <div class="set-tracker">
+        <div class="set-dots">
+          ${Array.from({ length: ex.sets }, (_, i) => `
+            <button class="set-dot ${i < done ? "filled" : ""}" data-set-index="${i}" title="Série ${i + 1}"></button>
+          `).join("")}
+        </div>
+        <span class="set-count">${done} / ${ex.sets} séries</span>
+      </div>
+    ` : "";
+
     card.innerHTML = `
-      <label class="exercise-main">
-        <input type="checkbox" ${checked ? "checked" : ""} ${day.rest ? "disabled" : ""} data-key="${key}">
+      <div class="exercise-main">
         <div class="exercise-body">
           <div class="exercise-name">${ex.name}</div>
           <div class="exercise-machine">${ex.machine}</div>
@@ -97,8 +115,9 @@ function renderDay() {
             <span>repos ${ex.repos}</span>
           </div>
           ${ex.note ? `<div class="exercise-note">${ex.note}</div>` : ""}
+          ${setDots}
         </div>
-      </label>
+      </div>
       ${tuto ? `
       <details class="tuto">
         <summary>Voir le tuto machine</summary>
@@ -115,11 +134,15 @@ function renderDay() {
     `;
 
     if (!day.rest) {
-      const input = card.querySelector("input");
-      input.addEventListener("change", () => {
-        progress[key] = input.checked;
-        saveProgress(progress);
-        render();
+      card.querySelectorAll(".set-dot").forEach(dot => {
+        dot.addEventListener("click", () => {
+          const clickedIndex = parseInt(dot.dataset.setIndex, 10);
+          const current = progress[key] || 0;
+          // Taper une série déjà remplie la retire (et celles d'après) ; sinon la remplit (et celles d'avant)
+          progress[key] = clickedIndex < current ? clickedIndex : clickedIndex + 1;
+          saveProgress(progress);
+          render();
+        });
       });
     }
 
