@@ -17,10 +17,11 @@
 
 <nav id="viewSwitch" class="view-switch">
   <button class="view-tab active" data-view="programme">Programme</button>
-  <button class="view-tab" data-view="poids">Suivi de poids</button>
+  <button class="view-tab" data-view="poids">Poids</button>
+  <button class="view-tab" data-view="repas">Repas</button>
 </nav>
 
-<section id="view-programme">
+<section id="view-programme" class="app-view" data-view="programme">
   <section class="progress-bar-wrap tip-card">
     <strong>Conseil débutante :</strong> commence avec des charges légères sur chaque machine (2 premières semaines) pour apprendre le mouvement, puis augmente progressivement. Pour la perte de poids, ajoute si possible 20-30 min de cardio guidé (vélo, tapis, elliptique) après tes séances — la combinaison musculation + cardio + alimentation est ce qui fait la différence sur la durée.
   </section>
@@ -40,7 +41,9 @@
   <main id="dayContent" class="day-content"></main>
 </section>
 
-<section id="view-poids" class="weight-view" hidden></section>
+<section id="view-poids" class="app-view weight-view" data-view="poids" hidden></section>
+
+<section id="view-repas" class="app-view meals-view" data-view="repas" hidden></section>
 
 <footer class="app-footer">
   <p>Programme personnalisé · Salle MyGym · La Réunion</p>
@@ -48,7 +51,9 @@
 
 <script src="machines.js"></script>
 <script src="program.js"></script>
+<script src="foods.js"></script>
 <script src="app.js"></script>
 <script src="weight.js"></script>
+<script src="meals.js"></script>
 </body>
 </html>

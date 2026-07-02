@@ -550,3 +550,59 @@ body {
 .weight-edit-btn {
   width: 100%;
 }
+
+/* Meals tracking */
+.meals-view {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+}
+
+.meal-date-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.meal-date-label {
+  font-weight: 600;
+  text-transform: capitalize;
+  min-width: 160px;
+  text-align: center;
+}
+
+.food-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.food-chip {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.food-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.weight-table tfoot td {
+  border-top: 1px solid var(--border);
+  border-bottom: none;
+  padding-top: 12px;
+}
+
+.meal-empty {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px 12px !important;
+}

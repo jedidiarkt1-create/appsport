@@ -235,8 +235,10 @@ document.querySelectorAll(".view-tab").forEach(tab => {
     document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
     tab.classList.add("active");
     const view = tab.dataset.view;
-    document.getElementById("view-programme").hidden = view !== "programme";
-    document.getElementById("view-poids").hidden = view !== "poids";
+    document.querySelectorAll(".app-view").forEach(section => {
+      section.hidden = section.dataset.view !== view;
+    });
     if (view === "poids") renderWeightView();
+    if (view === "repas") renderMealsView();
   });
 });
