@@ -24,8 +24,7 @@ const PROGRAM = [
       { name: "Crunch guidé", machine: "Machine abdominale (crunch)", sets: 4, reps: "15-20", repos: "60 s" },
       { name: "Rotation du buste", machine: "Machine rotation du tronc (obliques)", sets: 3, reps: "15/côté", repos: "60 s" },
       { name: "Relevé de jambes suspendu", machine: "Chaise romaine / station lombaires-abdos", sets: 3, reps: "12-15", repos: "60 s", note: "Jambes légèrement fléchies si besoin." },
-      { name: "Crunch à la poulie haute", machine: "Poulie haute + corde", sets: 3, reps: "15", repos: "60 s" },
-      { name: "Gainage planche", machine: "Au sol / tapis", sets: 3, reps: "30-45 s", repos: "45 s" }
+      { name: "Crunch à la poulie haute", machine: "Poulie haute + corde", sets: 3, reps: "15", repos: "60 s" }
     ]
   },
   {
@@ -62,8 +61,7 @@ const PROGRAM = [
       { name: "Crunch guidé (charge progressive)", machine: "Machine abdominale (crunch)", sets: 4, reps: "12-15", repos: "60 s" },
       { name: "Rotation du buste", machine: "Machine rotation du tronc (obliques)", sets: 3, reps: "15/côté", repos: "60 s" },
       { name: "Relevé de genoux suspendu", machine: "Chaise romaine / station lombaires-abdos", sets: 3, reps: "15", repos: "60 s" },
-      { name: "Crunch oblique à la poulie", machine: "Poulie haute + corde", sets: 3, reps: "12/côté", repos: "60 s" },
-      { name: "Gainage latéral", machine: "Au sol / tapis", sets: 2, reps: "30 s/côté", repos: "45 s" }
+      { name: "Crunch oblique à la poulie", machine: "Poulie haute + corde", sets: 3, reps: "12/côté", repos: "60 s" }
     ]
   },
   {
@@ -75,8 +73,8 @@ const PROGRAM = [
     exercises: [
       { name: "Hip Thrust guidé (charge légère)", machine: "Machine Hip Thrust", sets: 3, reps: "15", repos: "60 s" },
       { name: "Abduction de hanches", machine: "Machine abducteurs", sets: 3, reps: "20", repos: "45 s" },
-      { name: "Crunch guidé", machine: "Machine abdominale (crunch)", sets: 3, reps: "20", repos: "45 s" },
-      { name: "Gainage planche + variantes", machine: "Au sol / tapis", sets: 3, reps: "40 s", repos: "45 s" }
+      { name: "Adduction de hanches", machine: "Machine adducteurs", sets: 3, reps: "20", repos: "45 s" },
+      { name: "Crunch guidé", machine: "Machine abdominale (crunch)", sets: 3, reps: "20", repos: "45 s" }
     ]
   },
   {
