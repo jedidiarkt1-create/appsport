@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyGym — Programme Abdos &amp; Fessiers</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="brand">
+    <span class="brand-dot"></span>
+    <h1>MyGym <span>· Abdos &amp; Fessiers</span></h1>
+  </div>
+  <button id="resetWeekBtn" class="ghost-btn" title="Réinitialiser la semaine">Réinitialiser</button>
+</header>
+
+<section class="progress-bar-wrap">
+  <div class="progress-info">
+    <span id="progressLabel">0 / 0 exercices validés cette semaine</span>
+    <span id="progressPercent">0%</span>
+  </div>
+  <div class="progress-track">
+    <div id="progressFill" class="progress-fill"></div>
+  </div>
+</section>
+
+<nav id="dayTabs" class="day-tabs"></nav>
+
+<main id="dayContent" class="day-content"></main>
+
+<footer class="app-footer">
+  <p>Programme personnalisé · Salle MyGym · La Réunion</p>
+</footer>
+
+<script src="program.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

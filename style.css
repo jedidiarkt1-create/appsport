@@ -1,0 +1,243 @@
+:root {
+  --bg: #0f1115;
+  --bg-elevated: #171a21;
+  --card: #1c202a;
+  --border: #2a2f3a;
+  --text: #f2f3f5;
+  --text-muted: #9aa1ad;
+  --accent: #ff6a3d;
+  --accent-soft: rgba(255, 106, 61, 0.15);
+  --green: #3ddc84;
+  --blue: #4d9dff;
+  --purple: #b57bff;
+  --grey: #5c6270;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 12px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.brand h1 {
+  font-size: 1.15rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.brand h1 span {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.ghost-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.ghost-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.progress-bar-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 16px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.progress-track {
+  height: 8px;
+  background: var(--bg-elevated);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #ff9466);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+.day-tabs {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.day-tab {
+  flex: 0 0 auto;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+
+.day-tab.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.day-tab.rest {
+  opacity: 0.6;
+}
+
+.day-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.day-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.day-heading h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.tag-fessiers { background: rgba(77, 157, 255, 0.15); color: var(--blue); }
+.tag-abdos { background: rgba(255, 106, 61, 0.15); color: var(--accent); }
+.tag-mixte { background: rgba(181, 123, 255, 0.15); color: var(--purple); }
+.tag-repos { background: rgba(92, 98, 112, 0.2); color: var(--grey); }
+
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exercise-card {
+  display: flex;
+  gap: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, opacity 0.15s;
+}
+
+.exercise-card.done {
+  border-color: var(--green);
+  opacity: 0.65;
+}
+
+.exercise-card.done .exercise-name {
+  text-decoration: line-through;
+}
+
+.exercise-card input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.exercise-body {
+  flex: 1;
+}
+
+.exercise-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.exercise-machine {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.exercise-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.exercise-meta span {
+  background: var(--bg-elevated);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.exercise-note {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.app-footer {
+  text-align: center;
+  padding: 24px 20px 40px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
