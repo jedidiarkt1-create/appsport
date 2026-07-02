@@ -239,6 +239,5 @@ document.querySelectorAll(".view-tab").forEach(tab => {
       section.hidden = section.dataset.view !== view;
     });
     if (view === "poids") renderWeightView();
-    if (view === "repas") renderMealsView();
   });
 });
