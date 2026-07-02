@@ -189,13 +189,10 @@ body {
 }
 
 .exercise-card {
-  display: flex;
-  gap: 14px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px 16px;
-  cursor: pointer;
   transition: border-color 0.15s, opacity 0.15s;
 }
 
@@ -208,7 +205,13 @@ body {
   text-decoration: line-through;
 }
 
-.exercise-card input[type="checkbox"] {
+.exercise-main {
+  display: flex;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.exercise-main input[type="checkbox"] {
   width: 20px;
   height: 20px;
   margin-top: 2px;
@@ -250,6 +253,81 @@ body {
   font-size: 0.8rem;
   color: var(--text-muted);
   font-style: italic;
+}
+
+.tuto {
+  margin-top: 10px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.tuto summary {
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+  list-style: none;
+}
+
+.tuto summary::-webkit-details-marker {
+  display: none;
+}
+
+.tuto summary::before {
+  content: "▸ ";
+}
+
+.tuto[open] summary::before {
+  content: "▾ ";
+}
+
+.tuto-content {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.tuto-visual {
+  flex: 0 0 120px;
+  width: 120px;
+  height: 100px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px;
+  color: var(--blue);
+}
+
+.tuto-visual svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tuto-text {
+  flex: 1;
+  min-width: 180px;
+}
+
+.tuto-steps {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.tuto-steps li {
+  margin-bottom: 4px;
+}
+
+.tuto-mistake {
+  margin: 10px 0 0;
+  font-size: 0.78rem;
+  color: #ffb454;
+  background: rgba(255, 180, 84, 0.1);
+  border-radius: 6px;
+  padding: 6px 10px;
 }
 
 .app-footer {

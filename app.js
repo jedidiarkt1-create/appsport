@@ -80,21 +80,38 @@ function renderDay() {
     const key = exerciseKey(day.id, index);
     const checked = !!progress[key];
 
-    const card = document.createElement("label");
+    const card = document.createElement("div");
     card.className = "exercise-card" + (checked ? " done" : "");
 
+    const tuto = ex.machineId ? MACHINES[ex.machineId] : null;
+
     card.innerHTML = `
-      <input type="checkbox" ${checked ? "checked" : ""} ${day.rest ? "disabled" : ""} data-key="${key}">
-      <div class="exercise-body">
-        <div class="exercise-name">${ex.name}</div>
-        <div class="exercise-machine">${ex.machine}</div>
-        <div class="exercise-meta">
-          <span>${ex.sets} séries</span>
-          <span>${ex.reps}</span>
-          <span>repos ${ex.repos}</span>
+      <label class="exercise-main">
+        <input type="checkbox" ${checked ? "checked" : ""} ${day.rest ? "disabled" : ""} data-key="${key}">
+        <div class="exercise-body">
+          <div class="exercise-name">${ex.name}</div>
+          <div class="exercise-machine">${ex.machine}</div>
+          <div class="exercise-meta">
+            <span>${ex.sets} séries</span>
+            <span>${ex.reps}</span>
+            <span>repos ${ex.repos}</span>
+          </div>
+          ${ex.note ? `<div class="exercise-note">${ex.note}</div>` : ""}
         </div>
-        ${ex.note ? `<div class="exercise-note">${ex.note}</div>` : ""}
-      </div>
+      </label>
+      ${tuto ? `
+      <details class="tuto">
+        <summary>Voir le tuto machine</summary>
+        <div class="tuto-content">
+          <div class="tuto-visual">${tuto.svg}</div>
+          <div class="tuto-text">
+            <ol class="tuto-steps">
+              ${tuto.steps.map(step => `<li>${step}</li>`).join("")}
+            </ol>
+            <p class="tuto-mistake">⚠ ${tuto.mistake}</p>
+          </div>
+        </div>
+      </details>` : ""}
     `;
 
     if (!day.rest) {
